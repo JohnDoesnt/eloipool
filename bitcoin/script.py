@@ -38,9 +38,9 @@ class BitcoinScript:
 		if not d:
 			raise ValueError('invalid address')
 		(ver, pubkeyhash) = d
-		if ver == 0 or ver == 111:
+		if ver == 0 or ver == 30 or ver == 111:
 			return b'\x76\xa9\x14' + pubkeyhash + b'\x88\xac'
-		elif ver == 5 or ver == 196:
+		elif ver == 5 or ver == 50 or ver == 196:
 			return b'\xa9\x14' + pubkeyhash + b'\x87'
 		raise ValueError('invalid address version')
 	
